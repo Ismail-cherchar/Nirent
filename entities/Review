@@ -1,0 +1,43 @@
+{
+  "name": "Review",
+  "type": "object",
+  "properties": {
+    "booking_id": {
+      "type": "string"
+    },
+    "item_id": {
+      "type": "string"
+    },
+    "reviewer_email": {
+      "type": "string"
+    },
+    "reviewer_name": {
+      "type": "string"
+    },
+    "reviewee_email": {
+      "type": "string"
+    },
+    "rating": {
+      "type": "number",
+      "description": "1-5 star rating"
+    },
+    "comment": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string",
+      "enum": [
+        "renter_to_owner",
+        "owner_to_renter"
+      ],
+      "description": "Who is reviewing whom"
+    }
+  },
+  "required": [
+    "booking_id",
+    "item_id",
+    "reviewer_email",
+    "reviewee_email",
+    "rating"
+  ]
+}

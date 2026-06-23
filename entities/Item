@@ -1,0 +1,102 @@
+{
+  "name": "Item",
+  "type": "object",
+  "properties": {
+    "title": {
+      "type": "string",
+      "description": "Titre de l'objet"
+    },
+    "description": {
+      "type": "string",
+      "description": "Description d\u00e9taill\u00e9e"
+    },
+    "category": {
+      "type": "string",
+      "enum": [
+        "tools",
+        "camping",
+        "sports",
+        "party",
+        "electronics",
+        "garden",
+        "kitchen",
+        "furniture",
+        "vehicles",
+        "other"
+      ]
+    },
+    "price_per_day": {
+      "type": "number"
+    },
+    "deposit_amount": {
+      "type": "number"
+    },
+    "photos": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "location": {
+      "type": "string"
+    },
+    "latitude": {
+      "type": "number"
+    },
+    "longitude": {
+      "type": "number"
+    },
+    "rules": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "active",
+        "paused",
+        "rented",
+        "deleted"
+      ],
+      "default": "active"
+    },
+    "availability_start": {
+      "type": "string",
+      "format": "date"
+    },
+    "availability_end": {
+      "type": "string",
+      "format": "date"
+    },
+    "owner_name": {
+      "type": "string"
+    },
+    "owner_email": {
+      "type": "string"
+    },
+    "avg_rating": {
+      "type": "number",
+      "default": 0
+    },
+    "review_count": {
+      "type": "number",
+      "default": 0
+    },
+    "delivery_options": {
+      "type": "string",
+      "enum": [
+        "pickup",
+        "delivery",
+        "both"
+      ],
+      "default": "pickup",
+      "description": "Modes de remise disponibles"
+    }
+  },
+  "required": [
+    "title",
+    "description",
+    "category",
+    "price_per_day",
+    "location"
+  ]
+}

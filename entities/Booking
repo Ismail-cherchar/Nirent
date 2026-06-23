@@ -1,0 +1,109 @@
+{
+  "name": "Booking",
+  "type": "object",
+  "properties": {
+    "item_id": {
+      "type": "string"
+    },
+    "item_title": {
+      "type": "string"
+    },
+    "item_photo": {
+      "type": "string"
+    },
+    "renter_email": {
+      "type": "string"
+    },
+    "renter_name": {
+      "type": "string"
+    },
+    "owner_email": {
+      "type": "string"
+    },
+    "owner_name": {
+      "type": "string"
+    },
+    "start_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "end_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "total_price": {
+      "type": "number"
+    },
+    "deposit_amount": {
+      "type": "number"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "pending",
+        "accepted",
+        "rejected",
+        "active",
+        "completed",
+        "cancelled"
+      ],
+      "default": "pending"
+    },
+    "payment_status": {
+      "type": "string",
+      "enum": [
+        "pending",
+        "paid",
+        "refunded"
+      ],
+      "default": "pending"
+    },
+    "renter_reviewed": {
+      "type": "boolean",
+      "default": false
+    },
+    "owner_reviewed": {
+      "type": "boolean",
+      "default": false
+    },
+    "handover_mode": {
+      "type": "string",
+      "enum": [
+        "in_person",
+        "delivery"
+      ],
+      "description": "Mode de remise choisi"
+    },
+    "exchange_code": {
+      "type": "string",
+      "description": "Code PIN pour confirmer la remise"
+    },
+    "exchange_confirmed_renter": {
+      "type": "boolean",
+      "default": false
+    },
+    "exchange_confirmed_owner": {
+      "type": "boolean",
+      "default": false
+    },
+    "return_code": {
+      "type": "string",
+      "description": "Code PIN pour confirmer le retour"
+    },
+    "return_confirmed_renter": {
+      "type": "boolean",
+      "default": false
+    },
+    "return_confirmed_owner": {
+      "type": "boolean",
+      "default": false
+    }
+  },
+  "required": [
+    "item_id",
+    "renter_email",
+    "owner_email",
+    "start_date",
+    "end_date"
+  ]
+}
