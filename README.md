@@ -1,8 +1,26 @@
 # Nirent — Location d'objets entre particuliers
 
-**Nirent** est une marketplace web qui permet aux particuliers de **louer et de mettre en location des objets du quotidien** (outils, matériel de camping, équipement sportif, électronique, mobilier, véhicules…). La plateforme gère l'intégralité du parcours : publication d'une annonce avec géolocalisation, recherche par catégorie ou sur carte, réservation avec calcul automatique du prix et de la caution, échange sécurisé par codes PIN (remise et retour), messagerie entre utilisateurs, système d'avis, favoris, notifications, paiement en ligne et un panneau d'administration. L'objectif est de favoriser une consommation collaborative en rendant la location entre voisins simple et fiable.
+**Nirent** est une marketplace web qui permet aux particuliers de **louer et de mettre en location des objets du quotidien** (outils, matériel de camping, équipement sportif, électronique, mobilier, véhicules…). La plateforme gère l'intégralité du parcours : publication d'une annonce avec géolocalisation, recherche par catégorie ou sur carte, réservation avec calcul automatique du prix et de la caution, échange sécurisé par codes PIN (remise et retour), messagerie entre utilisateurs, système d'avis, favoris, notifications, paiement en ligne et un panneau d'administration. L'objectif est de favoriser une **consommation collaborative** en rendant la location entre voisins simple et fiable.
 
-> Projet réalisé dans le cadre du cursus ingénieur de l'**ECE Paris** (ING4 — PFE/PPE). L'application a été conçue sur la plateforme **Base44** ; ce dépôt contient le code source front-end exporté.
+> 🎓 Projet réalisé dans le cadre du cursus ingénieur de l'**ECE Paris** (ING4 — PFE/PPE). L'application a été conçue sur la plateforme **Base44** ; ce dépôt contient le code source front-end exporté.
+>
+> 🔗 Dépôt : https://github.com/Ismail-cherchar/Nirent
+
+---
+
+## 📑 Sommaire
+
+- [Stack technique](#-stack-technique)
+- [Architecture](#-architecture)
+- [Prérequis](#-prérequis)
+- [Installation et lancement](#-installation-et-lancement)
+- [Variables d'environnement](#-variables-denvironnement)
+- [Structure du projet](#-structure-du-projet)
+- [Modèle de données](#-modèle-de-données)
+- [Fonctionnalités principales](#-fonctionnalités-principales)
+- [Documentation associée](#-documentation-associée)
+- [Équipe](#-équipe)
+- [Licence](#-licence)
 
 ---
 
@@ -14,10 +32,33 @@
 | **UI / Styles** | Tailwind CSS 3, shadcn/ui (Radix UI), lucide-react, Framer Motion |
 | **Données / état** | TanStack React Query, Zod (validation), React Hook Form |
 | **Back-end (BaaS)** | Base44 SDK (`@base44/sdk`) — authentification, base de données, fonctions |
-| **Cartographie** | React Leaflet |
+| **Cartographie** | React Leaflet (OpenStreetMap) |
 | **Paiement** | Stripe (`@stripe/react-stripe-js`) |
 | **Divers** | Recharts (graphiques), jsPDF / html2canvas (export), date-fns / moment |
 | **Qualité** | ESLint 9, TypeScript (vérification de types via `jsconfig`) |
+
+---
+
+## 🏗️ Architecture
+
+Nirent est une **application web monopage (SPA)** React qui s'appuie sur un **back-end managé (BaaS)** Base44. Le client React communique avec Base44 via le SDK officiel (`src/api/base44Client.js`) pour l'authentification, l'accès aux données (entités) et le stockage des photos. Les paiements sont délégués à **Stripe** et la cartographie à **Leaflet / OpenStreetMap**.
+
+```mermaid
+flowchart LR
+    U([👤 Utilisateur]) --> A[App React + Vite<br/>SPA]
+    A -->|SDK @base44/sdk| B[(Base44 — BaaS)]
+    B --> DB[(Base de données<br/>Item, Booking, Review…)]
+    B --> AUTH[Authentification]
+    B --> STORE[Stockage des photos]
+    A -->|Paiement| S[Stripe]
+    A -->|Carte| L[Leaflet / OpenStreetMap]
+```
+
+- **Couche présentation** : pages (`src/pages/`) + composants (`src/components/`), routage côté client (`react-router-dom`).
+- **Couche état/données** : React Query gère le cache et la synchronisation avec le back-end ; Zod valide les formulaires.
+- **Couche back-end** : Base44 expose les entités (voir [Modèle de données](#-modèle-de-données)) et l'authentification, consommées via le SDK.
+
+> 📄 Pour le détail complet (choix technologiques justifiés, tolérance aux pannes, évolutivité…), voir le **document d'architecture technique** dans le dossier projet.
 
 ---
 
@@ -40,7 +81,7 @@ npm --version
 
 ```bash
 # 1. Cloner le dépôt
-git clone <URL_DU_DEPOT>
+git clone https://github.com/Ismail-cherchar/Nirent.git
 cd Nirent
 
 # 2. Installer les dépendances
@@ -140,16 +181,31 @@ Nirent/
 - 📅 **Réservation** : calcul automatique du prix et de la caution, workflow d'acceptation
 - 🔐 **Échange sécurisé** : codes PIN de **remise** et de **retour** entre les deux parties
 - 💳 **Paiement** : intégration Stripe
-- 💬 **Messagerie** temps réel entre utilisateurs
+- 💬 **Messagerie** entre utilisateurs
 - ⭐ **Avis & réputation** : notation croisée locataire / propriétaire
 - ❤️ **Favoris** et 🔔 **notifications**
 - 🛠️ **Panneau d'administration** : modération et gestion des signalements
 
 ---
 
+## 📚 Documentation associée
+
+Ce README est la **porte d'entrée** du dépôt. Pour aller plus loin, se référer aux autres livrables du projet :
+
+- **Document d'architecture technique** — choix technologiques détaillés et justifiés, sécurité, évolutivité.
+- **Document de prise en main** — guide utilisateur illustré (captures d'écran, cas d'usage pas à pas).
+- **Cahier des charges (CDC)** — besoins, périmètre et contraintes du projet.
+
+---
+
 ## 👥 Équipe
 
-Projet collectif ECE — ING4 : Ismael Cherchar, Sacha, Adam Bouchiba, Lorenzo Preciozo.
+Projet collectif ECE — ING4 :
+
+- **Ismael Cherchar**
+- **Sacha**
+- **Adam Bouchiba**
+- **Lorenzo Preciozo**
 
 ---
 
