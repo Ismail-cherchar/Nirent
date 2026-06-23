@@ -200,12 +200,16 @@ Ce README est la **porte d'entrée** du dépôt. Pour aller plus loin, se réfé
 
 ## 👥 Équipe
 
-Projet collectif ECE — ING4 :
+Projet collectif — **6 étudiants ingénieurs, ECE Paris (ING4)** :
 
-- **Ismael Cherchar**
-- **Sacha**
-- **Adam Bouchiba**
-- **Lorenzo Preciozo**
+| Membre | Rôle |
+|---|---|
+| **Adam Bouchiba** | Chef de projet |
+| **Ismail Cherchar** | Sécurité & Authentification |
+| **Antoine Touvet** | Projection & Finance |
+| **Sacha Tesson** | UX/UI Designer |
+| **Lorenzo Prezioso** | Architecture serveur & Déploiement |
+| **Jeremy Chen** | API & Logique métier |
 
 ---
 

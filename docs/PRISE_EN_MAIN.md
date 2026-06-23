@@ -165,7 +165,14 @@ Pour aider les repreneurs, voici les vrais points de blocage rencontrés :
 
 ## 8. Contacts et support
 
-Projet collectif ECE — ING4 : **Ismael Cherchar**, **Sacha**, **Adam Bouchiba**, **Lorenzo Preciozo**.
+Projet collectif — 6 étudiants ingénieurs, ECE Paris (ING4) :
+
+- **Adam Bouchiba** — Chef de projet
+- **Ismail Cherchar** — Sécurité & Authentification
+- **Antoine Touvet** — Projection & Finance
+- **Sacha Tesson** — UX/UI Designer
+- **Lorenzo Prezioso** — Architecture serveur & Déploiement
+- **Jeremy Chen** — API & Logique métier
 
 Pour toute question sur la reprise du projet, se rapprocher de l'équipe ou du coach référent.
 
