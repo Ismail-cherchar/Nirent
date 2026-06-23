@@ -58,7 +58,7 @@ flowchart LR
 - **Couche état/données** : React Query gère le cache et la synchronisation avec le back-end ; Zod valide les formulaires.
 - **Couche back-end** : Base44 expose les entités (voir [Modèle de données](#-modèle-de-données)) et l'authentification, consommées via le SDK.
 
-> 📄 Pour le détail complet (choix technologiques justifiés, tolérance aux pannes, évolutivité…), voir le **[document d'architecture technique](docs/ARCHITECTURE.md)**.
+> 📄 Pour le détail complet (choix technologiques justifiés, tolérance aux pannes, évolutivité…), voir le **document d'architecture technique** du dossier projet.
 
 ---
 
@@ -190,11 +190,11 @@ Nirent/
 
 ## 📚 Documentation associée
 
-Ce README est la **porte d'entrée** du dépôt. Pour aller plus loin, se référer aux autres livrables du projet :
+Ce README est la **porte d'entrée** du dépôt. Pour aller plus loin, se référer aux autres documents du **dossier projet** :
 
-- **[Document d'architecture technique](docs/ARCHITECTURE.md)** — choix technologiques détaillés et justifiés, sécurité, évolutivité.
-- **[Document de prise en main](docs/PRISE_EN_MAIN.md)** — guide utilisateur (vue d'ensemble, cas d'usage pas à pas, difficultés rencontrées).
-- **Cahier des charges (CDC)** — besoins, périmètre et contraintes du projet *(à ajouter au dossier projet)*.
+- **Document d'architecture technique** — choix technologiques détaillés et justifiés, sécurité, évolutivité.
+- **Document de prise en main** — guide utilisateur (vue d'ensemble, cas d'usage pas à pas).
+- **Cahier des charges (CDC)** — besoins, périmètre et contraintes du projet.
 
 ---
 
